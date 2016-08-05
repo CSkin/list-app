@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>List App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  
+  <body>
+    
+    <div class="view" id="main">
+      <h1 id="item"></h1>
+    </div>
+    
+    <div class="view" id="alt">
+      <h1 id="listHeader">The List</h1>
+    </div>
+    
+    <script>
+      writeItem();
+      document.getElementById("main").onclick = writeItem;
+    </script>
+    
+  </body>
+  
+</html>
