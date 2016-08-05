@@ -8,6 +8,16 @@ function randomize(min, max) {
 
 // Write a random list item to the h1 tag
 function writeItem() {
-  document.getElementById("item").textContent = list[randomize(0, list.length)];
+  document.getElementById("mitem").textContent = list[randomize(0, list.length)];
+}
+
+// Open the list view
+function viewList() {
+  document.getElementById("list").style.display = "flex";
+}
+
+// Close the list view
+function closeList() {
+  document.getElementById("list").style.display = "none";
 }
 
