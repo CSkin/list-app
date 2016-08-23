@@ -11,6 +11,39 @@ function writeItem() {
   document.getElementById("mitem").textContent = list[randomize(0, list.length)];
 }
 
+// Write list items to a table in the list view
+function writeList() {
+  
+  //specify where to insert the rows
+  var table = document.getElementById("ltable");
+  
+  //iterate over the list array and add a row to the table for each item
+  for (var i = 0; i < list.length; i++) {
+  
+    var row = document.createElement("tr");
+    
+    var numCell = document.createElement("td");
+    // align numbers to the top of their cells
+    numCell.style.verticalAlign = "top";
+    var itemCell = document.createElement("td");
+    var btnCell = document.createElement("td");
+    
+    var numText = document.createTextNode(i + 1 + ".");
+    var itemText = document.createTextNode(list[i]);
+    var btnText = document.createTextNode("x");
+    
+    numCell.appendChild(numText);
+    itemCell.appendChild(itemText);
+    btnCell.appendChild(btnText);
+    
+    row.appendChild(numCell);
+    row.appendChild(itemCell);
+    row.appendChild(btnCell);
+    
+    table.appendChild(row);
+  }
+}
+
 // Open the list view
 function viewList() {
   document.getElementById("list").style.display = "flex";

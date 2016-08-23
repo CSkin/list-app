@@ -21,9 +21,8 @@
           <h1>The List</h1>
         </div>
         <div id="lbody" class="list">
-          <p>Item 1</p>
-          <p>Item 2</p>
-          <p>Item 3</p>
+          <table id="ltable">
+          </table>
         </div>
         <div id="lfoot" class="list">
           <button type="button" id="btn-closelist">Close</button>
@@ -35,6 +34,7 @@
     
     <script>
       writeItem();
+      writeList();
       document.getElementById("main").onclick = writeItem;
       document.getElementById("btn-viewlist").onclick = viewList;
       document.getElementById("btn-closelist").onclick = closeList;

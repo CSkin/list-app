@@ -6,11 +6,11 @@ body {
 .view {
   position: absolute;
   display: flex;
-  height: 100%;
   width: 100%;
 }
 
 #main {
+  height: 100%;
   align-items: center;
 }
 
@@ -34,7 +34,7 @@ body {
 
 #lightbox {
   max-width: 80%;
-  margin: 0 auto;
+  margin: 5vw auto;
   padding: 5vw;
   background-color: #fff;
 }
