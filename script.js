@@ -1,15 +1,74 @@
-// Store list items in an array
-var list = ["Body is light, and the mouthfeel smooth.", "The palate gathers apple peel, light clove notes and a thin sweetness that's touched with caramel.", "In the middle, ripe and juicy fresh wheat malt with pear edge.", "A husky, grainy, wheat twang livens things up.", "Suggestions of bubblegum are noted.", "There's very little bitterness.", "A slight lemony sourness, banana pith and light hop leaf character combine to increase the perceived bitterness.", "Yeast is rather neutral, a bit chalky.", "Some medicinal phenols show through toward the finish.", "Finish dries the palate, with a lingering wheat and barley husk.", "Very smooth on the palate.", "The creamy carbonation builds up to a seltzery feel and tonic-water bite.", "This is followed by a quick and sharp tannic tartness that oddly lingers in the background and into the finish.", "Layered on top of this is something quite sweet, but not cloying.", "The base is rosewater-like, with notes of strawberries, faint berry-like sourness, and white grapes.", "Other notes include orange pith, floral honey, over-ripe peach meat, pear juice, and hints of mint.", "The cutting peppery edge segues into a somewhat-spicy and increasingly warming booziness.", "8 percent alcohol by volume.", "Pleasingly herbal, akin to sweetened cold Chinese tea.", "Light tannins linger in the bone-dry, powdery finish.", "Pours fizzy, creating a beige/eggshell-colored foamy head.", "The head is dense and wonderfully laced, sticking to the glass and also retaining magnificently.", "In fact, the lacing stays until the end.", "Beneath, a deep brown brew with rich tawny hues.", "This beer has some serious legs.", "Complex aromas: soft and powdery on the nose.", "Aromas of malt, chocolate chip cookie dough and a deep-rooted fruitiness.", "Notes of plum skins, spicy phenols and a soft bready yeast character.", "Nose shows some clove and banana bread.", "A soft wheat-husk background, with nutty yeast, hints of citrus and a brush of floral.", "In the mouth, the beer is smooth on the palate, light and uplifting.", "The palate is piqued by crisp carbonation.", "The watery, lemony edge that segues into a slightly grassy wheat twang.", "Very soft phenolic clover-like and thin banana flavors.", "Pithy floral, nutty yeast, gummy notes.", "Hops are non-existent, but somewhat expected for the style.", "Malt characters are weak, lending just a hint of residual sweetness.", "The finish on this brew is bone dry.", "A mouthful of rough and husky tannins and yeast flavors linger long past their welcome.", "Pours a very hazy, dirty peach color with tons of remaining sediment in the bottle.", "The head is vigorous but quickly snaps down to a thin, wispy lace.", "There isn't much head retention, but you can see the tight bubbles surface.", "Aroma is uniquely pungent.", "Plenty of pine tones, hints of menthol, herbs and a vaguely medicinal undercurrent.", "Oddly, there are also bizarre tones of cooked greens, freshly cut grass, animal feed, and generic bullion cube (no, really!).", "Lingering fruit characters bring to mind the essence of tart orange juice.", "Dominant fruit zest, berry tones and skin-like tannins.", "The 7.7 percent abv is hardly noticeable."];
+// Store list items as an array of objects. The viewed property tracks whether each item has been viewed.
+var list = [
+  {text: "Body is light, and the mouthfeel smooth.", viewed: false},
+  {text: "The palate gathers apple peel, light clove notes and a thin sweetness that's touched with caramel.", viewed: false},
+  {text: "In the middle, ripe and juicy fresh wheat malt with pear edge.", viewed: false},
+  {text: "A husky, grainy, wheat twang livens things up.", viewed: false},
+  {text: "Suggestions of bubblegum are noted.", viewed: false},
+  {text: "There's very little bitterness.", viewed: false},
+  {text: "A slight lemony sourness, banana pith and light hop leaf character combine to increase the perceived bitterness.", viewed: false},
+  {text: "Yeast is rather neutral, a bit chalky.", viewed: false},
+  {text: "Some medicinal phenols show through toward the finish.", viewed: false},
+  {text: "Finish dries the palate, with a lingering wheat and barley husk.", viewed: false},
+  {text: "Very smooth on the palate.", viewed: false},
+  {text: "The creamy carbonation builds up to a seltzery feel and tonic-water bite.", viewed: false},
+  {text: "This is followed by a quick and sharp tannic tartness that oddly lingers in the background and into the finish.", viewed: false},
+  {text: "Layered on top of this is something quite sweet, but not cloying.", viewed: false},
+  {text: "The base is rosewater-like, with notes of strawberries, faint berry-like sourness, and white grapes.", viewed: false},
+  {text: "Other notes include orange pith, floral honey, over-ripe peach meat, pear juice, and hints of mint.", viewed: false},
+  {text: "The cutting peppery edge segues into a somewhat-spicy and increasingly warming booziness.", viewed: false},
+  {text: "8 percent alcohol by volume.", viewed: false},
+  {text: "Pleasingly herbal, akin to sweetened cold Chinese tea.", viewed: false},
+  {text: "Light tannins linger in the bone-dry, powdery finish.", viewed: false},
+  {text: "Pours fizzy, creating a beige/eggshell-colored foamy head.", viewed: false},
+  {text: "The head is dense and wonderfully laced, sticking to the glass and also retaining magnificently.", viewed: false},
+  {text: "In fact, the lacing stays until the end.", viewed: false},
+  {text: "Beneath, a deep brown brew with rich tawny hues.", viewed: false},
+  {text: "This beer has some serious legs.", viewed: false},
+  {text: "Complex aromas: soft and powdery on the nose.", viewed: false},
+  {text: "Aromas of malt, chocolate chip cookie dough and a deep-rooted fruitiness.", viewed: false},
+  {text: "Notes of plum skins, spicy phenols and a soft bready yeast character.", viewed: false},
+  {text: "Nose shows some clove and banana bread.", viewed: false},
+  {text: "A soft wheat-husk background, with nutty yeast, hints of citrus and a brush of floral.", viewed: false},
+  {text: "In the mouth, the beer is smooth on the palate, light and uplifting.", viewed: false},
+  {text: "The palate is piqued by crisp carbonation.", viewed: false},
+  {text: "The watery, lemony edge that segues into a slightly grassy wheat twang.", viewed: false},
+  {text: "Very soft phenolic clover-like and thin banana flavors.", viewed: false},
+  {text: "Pithy floral, nutty yeast, gummy notes.", viewed: false},
+  {text: "Hops are non-existent, but somewhat expected for the style.", viewed: false},
+  {text: "Malt characters are weak, lending just a hint of residual sweetness.", viewed: false},
+  {text: "The finish on this brew is bone dry.", viewed: false},
+  {text: "A mouthful of rough and husky tannins and yeast flavors linger long past their welcome.", viewed: false},
+  {text: "Pours a very hazy, dirty peach color with tons of remaining sediment in the bottle.", viewed: false},
+  {text: "The head is vigorous but quickly snaps down to a thin, wispy lace.", viewed: false},
+  {text: "There isn't much head retention, but you can see the tight bubbles surface.", viewed: false},
+  {text: "Aroma is uniquely pungent.", viewed: false},
+  {text: "Plenty of pine tones, hints of menthol, herbs and a vaguely medicinal undercurrent.", viewed: false},
+  {text: "Oddly, there are also bizarre tones of cooked greens, freshly cut grass, animal feed, and generic bullion cube (no, really!).", viewed: false},
+  {text: "Lingering fruit characters bring to mind the essence of tart orange juice.", viewed: false},
+  {text: "Dominant fruit zest, berry tones and skin-like tannins.", viewed: false},
+  {text: "The 7.7 percent abv is hardly noticeable.", viewed: false}
+];
+
 
 // Return a random integer between min (included) and max (excluded)
 function randomize(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
 // Write a random list item to the h1 tag
 function writeItem() {
-  document.getElementById("mitem").textContent = list[randomize(0, list.length)];
+  // choose an item in the list at random
+  var itemNumber = randomize(0, list.length);
+  
+  // write the item's text to the tag
+  document.getElementById("mitem").textContent = list[itemNumber].text;
+  
+  // set the item's viewed proprty to true
+  list[itemNumber].viewed = true;
 }
+
 
 // Write list items to a table in the list view
 function writeList() {
@@ -28,9 +87,23 @@ function writeList() {
     var itemCell = document.createElement("td");
     var btnCell = document.createElement("td");
     
-    var numText = document.createTextNode(i + 1 + ".");
-    var itemText = document.createTextNode(list[i]);
-    var btnText = document.createTextNode("x");
+    // declare variables used in next step
+    var numText,
+        itemText,
+        btnText;
+    
+    // only show items in the list view that have been viewed in the main view
+    if (list[i].viewed) {
+      numText = document.createTextNode(i + 1 + ".");
+      itemText = document.createTextNode(list[i].text);
+      btnText = document.createTextNode("x");
+    } else {
+      numText = document.createTextNode(i + 1 + ".");
+      itemText = document.createTextNode("???");
+      // center align question marks
+      itemCell.style.textAlign = "center";
+      btnText = document.createTextNode("");
+    }
     
     numCell.appendChild(numText);
     itemCell.appendChild(itemText);
@@ -44,13 +117,17 @@ function writeList() {
   }
 }
 
+
 // Open the list view
 function viewList() {
+  writeList();
   document.getElementById("list").style.display = "flex";
 }
+
 
 // Close the list view
 function closeList() {
   document.getElementById("list").style.display = "none";
+  document.getElementById("ltable").innerHTML = "";
 }
 
