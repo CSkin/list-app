@@ -25,18 +25,22 @@
           </table>
         </div>
         <div id="lfoot" class="list">
-          <button type="button" id="btn-closelist">Close</button>
+          <div id="add">
+            <input type="text" id="fldAdd">&nbsp;<button id="btnAdd">Add</button>
+          </div>
+          <button id="btnCloseList">Close</button>
         </div>
       </div>
     </div>
 
-    <button type="button" id="btn-viewlist">View List</button>
+    <button id="btnViewList">View List</button>
     
     <script>
       writeItem();
       document.getElementById("main").onclick = writeItem;
-      document.getElementById("btn-viewlist").onclick = viewList;
-      document.getElementById("btn-closelist").onclick = closeList;
+      document.getElementById("btnViewList").onclick = viewList;
+      document.getElementById("btnCloseList").onclick = closeList;
+      document.getElementById("btnAdd").onclick = addItem;
     </script>
     
   </body>

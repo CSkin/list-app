@@ -25,6 +25,12 @@ body {
   }
 }
 
+#btnViewList {
+  position: absolute;
+  top: 2vw;
+  right: 2vw;
+}
+
 #list {
   z-index: 1;
   background-color: #000;
@@ -49,13 +55,10 @@ body {
 }
 
 #lbody {
-  margin: 30px 0 30px;
+  margin: 30px 0;
   text-align: left;
 }
 
-#btn-viewlist {
-  position: absolute;
-  top: 2vw;
-  right: 2vw;
+#add {
+  margin-bottom: 30px;
 }
-

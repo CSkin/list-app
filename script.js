@@ -57,12 +57,12 @@ function randomize(min, max) {
 }
 
 
-// Write a random list item to the h1 tag
+// Choose a list item to display
 function writeItem() {
   // choose an item in the list at random
   var itemNumber = randomize(0, list.length);
   
-  // write the item's text to the tag
+  // write the item's text to the h1 tag
   document.getElementById("mitem").textContent = list[itemNumber].text;
   
   // set the item's viewed proprty to true
@@ -71,13 +71,13 @@ function writeItem() {
 
 
 // Write list items to a table in the list view
-function writeList() {
+function writeList(i) {
   
   //specify where to insert the rows
   var table = document.getElementById("ltable");
   
   //iterate over the list array and add a row to the table for each item
-  for (var i = 0; i < list.length; i++) {
+  for (i; i < list.length; i++) {
   
     var row = document.createElement("tr");
     
@@ -118,16 +118,36 @@ function writeList() {
 }
 
 
-// Open the list view
+// Open the list view (also writes the list)
 function viewList() {
-  writeList();
+  writeList(0);
   document.getElementById("list").style.display = "flex";
 }
 
 
-// Close the list view
+// Close the list view (also clears the list)
 function closeList() {
   document.getElementById("list").style.display = "none";
   document.getElementById("ltable").innerHTML = "";
 }
 
+
+// Add a new item to the end of the list
+function addItem() {
+  
+  // store contents of add field in a variable
+  var newItem = document.getElementById("fldAdd").value;
+  
+  // if add field is empty, do nothing
+  if (newItem) {
+    
+    // add the item to the list array
+    list.push({text: newItem, viewed: true});
+    
+    // write the last item in the array to the list view
+    writeList(list.length - 1);
+    
+    // clear the add field
+    document.getElementById("fldAdd").value = "";
+  }
+}
