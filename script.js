@@ -97,6 +97,8 @@ function writeList(i) {
       numText = document.createTextNode(i + 1 + ".");
       itemText = document.createTextNode(list[i].text);
       btnText = document.createTextNode("x");
+      // add event handler to remove button
+      btnCell.onclick = function(){removeItem(this)};
     } else {
       numText = document.createTextNode(i + 1 + ".");
       itemText = document.createTextNode("???");
@@ -150,4 +152,25 @@ function addItem() {
     // clear the add field
     document.getElementById("fldAdd").value = "";
   }
+}
+
+
+// Count the number of older siblings an element has
+function countOlderSibs(element) {
+  var e = element,
+      c = 0;
+  while (e.previousElementSibling) {
+    e = e.previousElementSibling;
+    c++;
+  }
+  return c;
+}
+
+
+// Remove the clicked item from the list and refresh the list
+function removeItem(element) {
+  var index = countOlderSibs(element.parentNode);
+  list.splice(index, 1);
+  document.getElementById("ltable").innerHTML = "";
+  writeList(0);
 }
