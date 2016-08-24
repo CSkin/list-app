@@ -155,21 +155,9 @@ function addItem() {
 }
 
 
-// Count the number of older siblings an element has
-function countOlderSibs(element) {
-  var e = element,
-      c = 0;
-  while (e.previousElementSibling) {
-    e = e.previousElementSibling;
-    c++;
-  }
-  return c;
-}
-
-
 // Remove the clicked item from the list and refresh the list
 function removeItem(element) {
-  var index = countOlderSibs(element.parentNode);
+  var index = Number(element.previousElementSibling.previousElementSibling.textContent) - 1;
   list.splice(index, 1);
   document.getElementById("ltable").innerHTML = "";
   writeList(0);
