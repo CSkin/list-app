@@ -1,3 +1,5 @@
+// jshint loopfunc: true
+
 // Store list items as an array of objects. The viewed property tracks whether each item has been viewed.
 var list = [
   {text: "Body is light, and the mouthfeel smooth.", viewed: false},
@@ -47,7 +49,9 @@ var list = [
   {text: "Oddly, there are also bizarre tones of cooked greens, freshly cut grass, animal feed, and generic bullion cube (no, really!).", viewed: false},
   {text: "Lingering fruit characters bring to mind the essence of tart orange juice.", viewed: false},
   {text: "Dominant fruit zest, berry tones and skin-like tannins.", viewed: false},
-  {text: "The 7.7 percent abv is hardly noticeable.", viewed: false}
+  {text: "The 7.7 percent abv is hardly noticeable.", viewed: false},
+  {text: "Huge notes of cold brewed coffee, roasted nuts, brown sugar, dark malts.", viewed: false},
+  {text: "The medium-bodied mouthfeel enhances flavors while still keeping drinkability ridiculously high.", viewed: false}
 ];
 
 
@@ -57,7 +61,7 @@ function randomize(min, max) {
 }
 
 
-// Choose a list item to display
+// Display a random list item
 function writeItem() {
   // choose an item in the list at random
   var itemNumber = randomize(0, list.length);
@@ -82,10 +86,12 @@ function writeList(i) {
     var row = document.createElement("tr");
     
     var numCell = document.createElement("td");
-    // align numbers to the top of their cells
-    numCell.style.verticalAlign = "top";
     var itemCell = document.createElement("td");
     var btnCell = document.createElement("td");
+    // apply styles to number and text cells
+    numCell.style.verticalAlign = "top";
+    itemCell.style.paddingLeft = "10px";
+    itemCell.style.paddingRight = "10px";
     
     // declare variables used in next step
     var numText,
@@ -97,7 +103,8 @@ function writeList(i) {
       numText = document.createTextNode(i + 1 + ".");
       itemText = document.createTextNode(list[i].text);
       btnText = document.createTextNode("x");
-      // add event handler to remove button
+      // add event handlers to item text and remove buttons
+      itemCell.onclick = function(){viewItem(this)};
       btnCell.onclick = function(){removeItem(this)};
     } else {
       numText = document.createTextNode(i + 1 + ".");
@@ -161,4 +168,12 @@ function removeItem(element) {
   list.splice(index, 1);
   document.getElementById("ltable").innerHTML = "";
   writeList(0);
+}
+
+
+// Display clicked item in main view and close list view
+function viewItem(element) {
+  var index = Number(element.previousElementSibling.textContent) - 1;
+  document.getElementById("mitem").textContent = list[index].text;
+  closeList();
 }

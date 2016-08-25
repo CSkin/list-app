@@ -59,6 +59,11 @@ body {
   text-align: left;
 }
 
+td {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
 #add {
   margin-bottom: 30px;
 }
