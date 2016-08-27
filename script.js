@@ -64,13 +64,13 @@ function randomize(min, max) {
 // Display a random list item
 function writeItem() {
   // choose an item in the list at random
-  var itemNumber = randomize(0, list.length);
+  var index = randomize(0, list.length);
   
   // write the item's text to the h1 tag
-  document.getElementById("mitem").textContent = list[itemNumber].text;
+  document.getElementById("mitem").textContent = list[index].text;
   
   // set the item's viewed proprty to true
-  list[itemNumber].viewed = true;
+  list[index].viewed = true;
 }
 
 
@@ -145,9 +145,9 @@ function closeList() {
 function addItem() {
   
   // store contents of add field in a variable
-  var newItem = document.getElementById("fldAdd").value;
+  var newItem = document.getElementById("txtAdd").value;
   
-  // if add field is empty, do nothing
+  // if add field is empty, do nothing. otherwise...
   if (newItem) {
     
     // add the item to the list array
@@ -157,7 +157,7 @@ function addItem() {
     writeList(list.length - 1);
     
     // clear the add field
-    document.getElementById("fldAdd").value = "";
+    document.getElementById("txtAdd").value = "";
   }
 }
 

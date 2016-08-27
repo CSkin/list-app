@@ -26,7 +26,7 @@
         </div>
         <div id="lfoot" class="list">
           <div id="add">
-            <input type="text" id="fldAdd">&nbsp;<button id="btnAdd">Add</button>
+            <input type="text" id="txtAdd">&nbsp;<button id="btnAdd">Add</button>
           </div>
           <button id="btnCloseList">Close</button>
         </div>
@@ -39,8 +39,11 @@
       writeItem();
       document.getElementById("main").onclick = writeItem;
       document.getElementById("btnViewList").onclick = viewList;
-      document.getElementById("btnCloseList").onclick = closeList;
       document.getElementById("btnAdd").onclick = addItem;
+      document.getElementById("txtAdd").onkeyup = function() { if (event.keyCode === 13) {addItem()} };
+      document.getElementById("btnCloseList").onclick = closeList;
+      document.getElementById("lightbox").onclick = function(event) {event.stopPropagation()};
+      document.getElementById("list").onclick = closeList;
     </script>
     
   </body>
