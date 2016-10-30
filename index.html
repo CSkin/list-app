@@ -26,14 +26,17 @@
         </div>
         <div id="lfoot" class="list">
           <div id="add">
-            <input type="text" id="txtAdd">&nbsp;<button id="btnAdd">Add</button>
+            <input type="text" id="txtAdd">&nbsp;<button id="btnAdd" class="button">Add</button>
           </div>
-          <button id="btnCloseList">Close</button>
+          <button id="btnCloseList" class="button">Close</button>
+        </div>
+        <div id="lreset" class="list">
+          <a id="lnkReset">Reset list data</a>
         </div>
       </div>
     </div>
 
-    <button id="btnViewList">View List</button>
+    <button id="btnViewList" class="button">View List</button>
     
     <script>
       writeItem();
@@ -44,6 +47,7 @@
       document.getElementById("btnCloseList").onclick = closeList;
       document.getElementById("lightbox").onclick = function(event) {event.stopPropagation()};
       document.getElementById("list").onclick = closeList;
+      document.getElementById("lnkReset").onclick = restoreList;
     </script>
     
   </body>
